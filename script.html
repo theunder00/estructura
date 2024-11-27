@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* h1{
+        text-align: center;
+    } */
+     #myButton{
+        padding: 15px 60px;
+        border-radius: 50px;
+        border: none;
+        background-color: black;
+        color: white;
+        margin-top: 40px;
+     }
+     body{
+        text-align: center;
+     }
+     #myButton:hover{
+        background-color: red;
+        color: white;
+        cursor: pointer;
+     }
+     #header{
+        border: solid;
+     }
+</style>
+<body>
+    <header id="header">
+        <h1>HOLA MUNDO</h1>
+    </header>
+    <button id="myButton">
+        Enviar
+    </button>
+    <p id="mensaje"></p>
+</body>
+<script>
+    console.log("hola mundo");
+    // let nombreUsuario = prompt("Dime como t llamas");
+    // alert("bienvenido mucho gusto "+nombreUsuario);
+
+    // let VariabledeJose = prompt("Como te llamas");
+    // alert("mucho gusto "+VariabledeJose);
+    // let header = document.querySelector('#header');
+    // header.style.color = 'blue';
+    // header.style.fontSize = '20px';
+    // header.style.border ='solid';
+    // let button = document.querySelector('.myButton');
+    // button.addEventListener('click', function() {
+    //     alert('¡Botón clickeado');
+    // });
+    // let button = document.querySelector('.myButton');
+    // button.addEventListener('click', function() {
+    //     alert('boton clikeado');
+    // });
+    
+    // let boton = document.querySelector('.myButton');
+    // boton.addEventListener('click', function() {
+    //     document.body.style.backgroundColor = '#000000';
+    // });
+
+    
+
+    let jose = document.querySelector('#myButton');
+    jose.addEventListener('click', function() {
+        document.getElementById('header').style.backgroundColor = 'green';
+        document.getElementById('header').style.color = 'white';
+        // document.getElementById('header').style.border = 'solid';
+        document.getElementById('header').style.padding = '30px';
+    });
+
+    // console.log("¡Hola Mundo");
+    for (let i = 0; i < 10; i++) {
+        console.log(i);
+    }
+
+    let boton = document.getElementById("myButton");
+    let mensaje = document.getElementById("mensaje");
+
+    boton.addEventListener("click", function() {
+        mensaje.textContent = "Boton clickeado";
+    });
+
+    var shee = "Hola" + " Programador";
+    alert (shee); 
+
+    alert("Hola mundo");
+    let nombre = prompt("como te llamas");
+    alert("hola " + nombre + "!");
+
+
+   
+</script>
+<style>
+    #header{
+        padding: 30px;
+    }
+</style>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    main {
+        border: 1px solid black;
+        height: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto auto auto 150px 100px auto;
+        gap: 10px;
+        padding: 10px;
+    }
+    main p{
+        text-align: justify;
+    }
+    header {
+        background-color: red;
+        grid-column: span 3;
+        grid-row: span 1;
+    }
+
+    nav {
+        background-color: gainsboro;
+        grid-column: span 3;
+        grid-row: span 1;
+    }
+
+    aside {
+        background-color: purple;
+        grid-column: span 1;
+        grid-row: span 3;
+    }
+
+    article {
+        background-color: aqua;
+        grid-column: span 2;
+        grid-row: span 3;
+    }
+
+    footer {
+        background-color: chartreuse;
+        grid-column: span 3;
+        grid-row: span 1;
+    }
+
+    @media (max-width:900px){
+        aside{
+            grid-column: span 3;
+        }
+        article{
+            grid-column: span 3;
+        }
+    }
+
+    @media (max-width:600px) {
+        aside {
+            grid-column: span 3;
+        }
+
+        article {
+            grid-column: span 3;
+        }
+
+        footer {
+            grid-column: span 3;
+        }
+    }
+
+    header h2,
+    nav h2,
+    aside h2,
+    article h2,
+    footer h2 {
+        display: flex;
+        justify-content: center;
+        /* align-items: center; */
+    }
+
+    header,
+    nav,
+    article,
+    footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    article img {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+<body>
+    <main>
+        <header>
+            <h2>header</h2>
+        </header>
+        <nav>
+            <h2>Nav</h2>
+        </nav>
+        <aside>
+            <h2>Aside</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque rerum provident, dicta vel quos possimus
+                soluta reprehenderit, doloremque, libero dignissimos quo! Officiis natus, labore cupiditate tempore et
+                eaque nam expedita eum distinctio? Odio doloremque laboriosam nisi accusantium et minima cum cupiditate,
+                hic tempora voluptatum incidunt cumque ipsa reiciendis expedita quo libero quidem natus! Molestiae
+                libero eum optio hic. Saepe corrupti placeat, eos accusantium nisi praesentium veniam unde aliquid
+                rerum, quaerat ut natus nulla a. Repellendus recusandae voluptates repudiandae sunt temporibus quidem
+                quo praesentium quaerat adipisci accusantium obcaecati, ipsum ad distinctio molestiae? Ducimus corrupti,
+                ut sequi asperiores porro aspernatur iusto! Iure, placeat saepe aspernatur perferendis quibusdam,
+                voluptate laboriosam quo rerum quis ex sint? Debitis tenetur, necessitatibus rem recusandae maxime nobis
+                fuga praesentium at cum aliquid, a ipsum deserunt ipsa soluta? Mollitia ab dolor veritatis molestiae
+                iste, facilis ipsam error distinctio cumque blanditiis nihil. Impedit rem accusantium dolor ipsum
+                doloribus perferendis sit!</p>
+        </aside>
+        <article>
+            <!-- <h2>Article</h2> -->
+            <img src="https://picsum.photos/id/237/536/354" alt="">
+        </article>
+        <footer>
+            <h2>Footer</h2>
+        </footer>
+    </main>
+</body>
+
+</html>

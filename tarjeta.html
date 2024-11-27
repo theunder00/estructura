@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validador de Tarjeta de Crédito</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: gray; /* Fondo rosado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: gray;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgba(220, 220, 220, 0.253);
+}
+
+p {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+</style>
+<body>
+    <div class="container">
+        <h1>Validador de Tarjeta de Crédito</h1>
+        <input type="text" id="cardNumber" placeholder="Ingresa el número de la tarjeta" />
+        <button id="validateButton">Validar Tarjeta</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        // Función para validar tarjeta usando el Algoritmo de Luhn
+function isValidCard(cardNumber) {
+    let sum = 0;
+    let isSecond = false;
+
+    // Recorremos el número de tarjeta de derecha a izquierda
+    for (let i = cardNumber.length - 1; i >= 0; i--) {
+        let digit = parseInt(cardNumber[i]);
+
+        if (isSecond) {
+            digit *= 2; // Duplicar el dígito
+
+            if (digit > 9) {
+                digit -= 9; // Si el dígito es mayor a 9, restar 9
+            }
+        }
+
+        sum += digit;
+        isSecond = !isSecond; // Cambiar al siguiente dígito
+    }
+
+    // Verificar si la suma es divisible por 10
+    return sum % 10 === 0;
+}
+
+// Elementos del DOM
+const validateButton = document.getElementById('validateButton');
+const cardNumberInput = document.getElementById('cardNumber');
+const resultElement = document.getElementById('result');
+
+// Evento para validar la tarjeta
+validateButton.addEventListener('click', () => {
+    const cardNumber = cardNumberInput.value.trim();
+
+    // Verificar que solo contenga dígitos
+    if (!/^\d+$/.test(cardNumber)) {
+        resultElement.textContent = 'Por favor, ingresa solo números.';
+        resultElement.style.color = 'red';
+        return;
+    }
+
+    // Validar el número de tarjeta
+    const isValid = isValidCard(cardNumber);
+
+    if (isValid) {
+        resultElement.textContent = 'La tarjeta es válida.';
+        resultElement.style.color = 'green';
+    } else {
+        resultElement.textContent = 'La tarjeta no es válida.';
+        resultElement.style.color = 'red';
+    }
+});
+
+    </script>
+</body>
+</html>
